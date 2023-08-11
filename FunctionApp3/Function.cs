@@ -19,7 +19,7 @@ namespace FunctionApp3
         }
 
         [Function(nameof(Function))]
-        public void Run([BlobTrigger("samples-workitems/{name}", Connection = "AzureWebJobsStorage")] Stream stream, string name)
+        public void Run([BlobTrigger("blobstorageforsachintest/{name}", Connection = "AzureWebJobsStorage")] Stream stream, string name)
         {
             _logger.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {stream.Length} Bytes");
             _appDbContext.FileRecords.Add(new FileRecords
